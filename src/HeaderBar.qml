@@ -57,6 +57,11 @@ Item {
         sourceSize.width: parent.width
 
         visible: false
+
+        QOniometer {
+            id: visualizer
+            anchors.fill: parent
+        }
     }
 
 
@@ -93,11 +98,6 @@ Item {
         radius: 32
         deviation: 12
         samples: 65
-
-        QOniometer {
-            id: visualizer
-            anchors.fill: parent
-        }
 
         LabelWithToolTip {
             anchors.bottom: parent.bottom
