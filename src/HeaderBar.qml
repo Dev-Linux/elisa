@@ -312,4 +312,9 @@ Item {
             }
         }
     }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: visualizer.selectNextEffect()
+    }
 }
