@@ -52,6 +52,7 @@
 #include "albumfilterproxymodel.h"
 #include "elisaapplication.h"
 #include "audiowrapper.h"
+#include "qoniometer.h"
 
 #if defined Qt5DBus_FOUND && Qt5DBus_FOUND
 #include "mpris2/mpris2.h"
@@ -143,6 +144,7 @@ int __attribute__((visibility("default"))) main(int argc, char *argv[])
     qmlRegisterType<QSortFilterProxyModel>("org.mgallien.QmlExtension", 1, 0, "SortFilterProxyModel");
     qmlRegisterType<AlbumFilterProxyModel>("org.mgallien.QmlExtension", 1, 0, "AlbumFilterProxyModel");
     qmlRegisterType<AudioWrapper>("org.mgallien.QmlExtension", 1, 0, "AudioWrapper");
+    qmlRegisterType<QOniometer>("org.mgallien.QmlExtension", 1, 0, "QOniometer");
 
 #if defined Qt5DBus_FOUND && Qt5DBus_FOUND
     qmlRegisterType<Mpris2>("org.mgallien.QmlExtension", 1, 0, "Mpris2");

@@ -23,6 +23,7 @@
 #include <QObject>
 #include <QUrl>
 #include <QMediaPlayer>
+#include <QAudioBuffer>
 #include <QString>
 
 class AudioWrapperPrivate;
@@ -129,6 +130,8 @@ Q_SIGNALS:
     void stopped();
 
     void audioRoleChanged();
+
+    void audioBufferAvailable(const QAudioBuffer &buffer);
 
 public Q_SLOTS:
 

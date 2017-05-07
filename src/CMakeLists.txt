@@ -22,6 +22,7 @@ if (Qt5Quick_FOUND AND Qt5Widgets_FOUND)
         trackslistener.cpp
         elisaapplication.cpp
         audiowrapper.cpp
+        qoniometer.cpp
 
         MediaServer.qml
         Theme.qml

@@ -22,6 +22,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.2
 import QtQuick.Window 2.2
 import QtGraphicalEffects 1.0
+import org.mgallien.QmlExtension 1.0
 
 Item {
     id: headerBar
@@ -33,6 +34,7 @@ Item {
     property string tracksCount
     property int trackRating
     property bool ratingVisible
+    property alias player: visualizer.player
 
     Theme {
         id: elisaTheme
@@ -55,7 +57,13 @@ Item {
         sourceSize.width: parent.width
 
         visible: false
+
+        QOniometer {
+            id: visualizer
+            anchors.fill: parent
+        }
     }
+
 
     Desaturate {
         id: desaturateBackground

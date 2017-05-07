@@ -356,6 +356,8 @@ ApplicationWindow {
 
                 ratingVisible: false
 
+                player: audioPlayer
+
                 ToolButton {
                     id: menuButton
 

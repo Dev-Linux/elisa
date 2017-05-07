@@ -20,6 +20,7 @@
 #include "audiowrapper.h"
 
 #include <QTimer>
+#include <QAudioProbe>
 
 #include "config-upnp-qt.h"
 
@@ -29,6 +30,8 @@ class AudioWrapperPrivate
 public:
 
     QMediaPlayer mPlayer;
+
+    QAudioProbe mProbe;
 
 };
 
@@ -45,6 +48,11 @@ AudioWrapper::AudioWrapper(QObject *parent) : QObject(parent), d(new AudioWrappe
     connect(&d->mPlayer, &QMediaPlayer::durationChanged, this, &AudioWrapper::durationChanged);
     connect(&d->mPlayer, &QMediaPlayer::positionChanged, this, &AudioWrapper::positionChanged);
     connect(&d->mPlayer, &QMediaPlayer::seekableChanged, this, &AudioWrapper::seekableChanged);
+    connect(&d->mProbe, &QAudioProbe::audioBufferProbed, this, &AudioWrapper::audioBufferAvailable);
+
+    if (!d->mProbe.setSource(&d->mPlayer)) {
+        qWarning() << "Failed to enable audio probing";
+    }
 }
 
 AudioWrapper::~AudioWrapper()
